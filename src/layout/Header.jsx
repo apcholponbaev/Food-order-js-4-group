@@ -7,12 +7,12 @@ import { FoodContext } from '../store/FoodContext'
 
 const Header = (props) => {
 
-   const { items } = useContext(FoodContext)
-      
+  const { items } = useContext(FoodContext)
+
   const CalculateAmount = () => {
-     let resultAmount = items.reduce((a , b) => {
-      return a + b.amount 
-     }, 0)
+    let resultAmount = items.reduce((a, b) => {
+      return a + b.amount
+    }, 0)
     return resultAmount
   }
 
@@ -26,9 +26,9 @@ const Header = (props) => {
         <a href="">Контакты</a>
         <a href="">Заказать</a>
       </Navigation >
-    
-      <OrderBasketItem  amount={CalculateAmount()} open={props.modal}/>
-     
+
+      <OrderBasketItem amount={CalculateAmount()} open={props.modal} />
+
     </HeaderStyled>
   )
 }
