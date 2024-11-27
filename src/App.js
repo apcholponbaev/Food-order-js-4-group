@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+import FoodOrderInfo from './components/FoodOrderInfo'
+import Header from './layout/Header';
+import Products from './components/product/Products';
+import Modal from './components/UI/Modal';
+import { useState } from 'react';
+
+
 function App() {
+
+ 
+const [visibleModal , setVisibleModal] = useState(false)
+
+const changheStateModal = () => {
+  setVisibleModal(prevState => !prevState)
+}
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header modal={changheStateModal}/>
+     {visibleModal &&  <Modal onClose={changheStateModal}/> }
+      <FoodOrderInfo/>
+      <Products/>
+     
     </div>
   );
 }
